@@ -32,7 +32,7 @@
     <meta name="theme-color" content="#00c4ff">
     <meta name="author" content="warm">
     <meta name="description" content="null">
-    <meta name="keywords" content="Android">
+    <meta name="keywords" content="Android,blog">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/logo.png">
@@ -60,7 +60,7 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="如何搭建自己的博客 | Hi！在吗？">
     <meta property="og:description" content="null">
-    
+    <meta property="og:article:tag" content="blog"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -266,17 +266,8 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script>
-    var randomNum = Math.floor(Math.random() * 9 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://oqwcjoc6j.bkt.clouddn.com/up_blog_bg.jpg)">
     
             <p class="article-headline-p">
                 如何搭建自己的博客
@@ -322,7 +313,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/blog/">blog</a>
     </ul>
     
 
@@ -377,7 +368,8 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <p>首先，需要先购买一个域名。</p>
+
     
 
     
