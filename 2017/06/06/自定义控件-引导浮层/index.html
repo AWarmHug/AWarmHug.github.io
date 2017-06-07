@@ -10,7 +10,7 @@
     
     <title>
         
-            如何搭建自己的博客 | 
+            自定义控件--引导浮层 | 
         
         Hi！在吗？
     </title>
@@ -58,7 +58,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="hizaima.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="如何搭建自己的博客 | Hi！在吗？">
+    <meta property="og:title" content="自定义控件--引导浮层 | Hi！在吗？">
     <meta property="og:description" content="null">
     
 
@@ -267,10 +267,10 @@
     <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://oqwcjoc6j.bkt.clouddn.com/up_blog_bg.jpg)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://oqwcjoc6j.bkt.clouddn.com/Screenshot_20170607-083523_1.jpg)">
     
             <p class="article-headline-p">
-                如何搭建自己的博客
+                自定义控件--引导浮层
             </p>
         </div>
 
@@ -289,7 +289,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>warm</strong>
-        <span>6月 02, 2017</span>
+        <span>6月 06, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -329,7 +329,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=如何搭建自己的博客&url=hizaima.com//2017/06/02/如何搭建自己的博客/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=自定义控件--引导浮层&url=hizaima.com//2017/06/06/自定义控件-引导浮层/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -350,7 +350,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hi！在吗？&title=如何搭建自己的博客&summary=null&pics=hizaima.com/img/logo.png&url=hizaima.com/2017/06/02/如何搭建自己的博客/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hi！在吗？&title=自定义控件--引导浮层&summary=null&pics=hizaima.com/img/logo.png&url=hizaima.com/2017/06/06/自定义控件-引导浮层/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -368,32 +368,21 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p><strong>Q：现在可以写博客的地方那么多，为什么还要自己建一个网站？</strong></p>
-<p><strong>A：装逼！对，就是装逼。</strong></p>
-<p>当然还有很多其他原因，其他就是，毕竟是开发嘛，还是应该有个人网站的。</p>
-<p>还有一个很重要的原因就是，之前我也在csdn上写过，感觉确实坚持不下去，现在自己建一个网站，应该会更激发动力，毕竟花了钱和时间。</p>
+        <p>一般在第一次安装，或者新版本更新的时候，引导用户一些新的功能，这时候，就需要一个浮层浮在上面，在关键的地方有需要显示出来，大概就像这样：<img src="http://oqwcjoc6j.bkt.clouddn.com/Screenshot_20170607-083523_1.jpg" alt=""></p>
+<p>因为各种App界面不同，需求也各不相同，所以，我只是提供一些关键代码，至于是要画方还是画圆，可以自己实现，关于Canvas的一些常见操作可以自己查阅Api，联系一下就行，也可以看看我的这个<a href="https://github.com/AWarmHug/SimpleChart" target="_blank" rel="external">小demo</a>，是一个简单的报表（饼状图，条形图，折线图，可以对Canvas，有一个初步的了解）。</p>
 <hr>
-<p>ok！废话结束。下面开始讲讲自己建博客的过程。</p>
-<hr>
-<p>我的博客就是套模板的，挂Github上的。也很简单，熟悉一下流程，很快就能建好，我前后花了一天。（算是时间比较长的，我相信你听了我说的，半天就可以了）。</p>
-<p>主要的一个流程就是，买域名+Github+Hexo，然后就好了。域名是什么？你肯定明白，GitHub也不用说，Hexo是什么？应该就是一个静态网页生成器。</p>
-<p><strong>关于域名</strong></p>
-<p><strong>Q：是否需要域名？</strong></p>
-<p><strong>A：这个看个人。不需要域名的话，可以直接跳过下面的关于域名，但是我还是推荐搞个域名，首先是因为并不贵（如果不是顶级域名，现在只要10块钱左右一年，一般是60块钱左右，确实不贵了），当然，最最重要是，装逼更稳。所以个人推荐还是搞一个。</strong></p>
-<p>我的域名是在<a href="https://www.godaddy.com" target="_blank" rel="external">狗爹</a>上买的。支持支付宝付款，当然其他的也挺好。这个都差不多，只要是大公司就行。</p>
-<p>如果，只是想搞个博客，那么是不是顶级域名完全不重要了，我感觉.me，.top这样的也听好，挑便宜的。如果想，以后留着做其他事情，不妨好好想想，取了好记的域名，说不定以后还有点价值。我的域名想了有半天时间，确实现在好记.com的域名几乎全被注册了。我的域名是<a href="http://www.hizaima.com" target="_blank" rel="external">Hi！在吗？</a>。</p>
-<p>注册域名时，只要按步骤来基本没什么大问题，就是注册，下单，付钱。还有一些附加服务，需要自己多看看，反正我都没买。</p>
-<p>当域名注册好之后就是打开<a href="https://www.github.com" target="_blank" rel="external">GitHub</a>,我相信每个开发都是有自己的Github的。</p>
-<p><strong>关于GitHub Pages</strong></p>
-<blockquote>
-<p>github Pages可以被认为是用户编写的、托管在github上的静态网页。</p>
-</blockquote>
-<p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external"><strong>关于Hexo</strong></a></p>
-<blockquote>
-<p>快速、简洁且高效的博客框架</p>
-</blockquote>
-<p>不好和我结束，反正，我觉得就是一个网页生成器。</p>
-<p>然后就是在GitHub上操作了。</p>
+<p><strong>下面就开始</strong></p>
+<p>其实，实现起来并不难，主要的一个点就是，如何实现一部分透明，其他不透明，这里需要了解<strong>PorterDuffXfermode</strong>，其效果大概就是这样的：</p>
+<p><img src="http://oqwcjoc6j.bkt.clouddn.com/xferModes.jpg" alt=""></p>
+<p>我们代码中需要用到的就是<strong>PorterDuff.Mode.SRC_OUT</strong>这个属性，上图已经很明显了，就是去除其中的后画的这一块。</p>
+<p>此时，对如何画浮层有一个大概的了解，然后就是需要制定某一块区域透明。这时候，我们就需要获取到需要透明的控件的位置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>[] location = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">cView.getLocationInWindow(location);</div></pre></td></tr></table></figure>
+<p>这时候<strong>location</strong>中就包含了View的位置，当我，然后根据view的宽高，计算一下，得到一个<strong>rect</strong>就可以了。但是，直接这样使用在Activity中会有一些问题，因为View在<strong>onCreate()</strong>方法中，并没有显示，还在<strong>onMeasure()</strong>的过程，所以，我们不可能知道他的位置，所以，我们需要在LayerView中实现<strong>ViewTreeObserver.OnGlobalLayoutListener</strong>接口，并实现<strong>onGlobalLayout()</strong>方法，获取需要显示的View的位置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGlobalLayout</span><span class="params">()</span> </span>&#123;</div><div class="line">           <span class="comment">//获取View位置，根据位置，设置透明区域的RectF</span></div><div class="line">     <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.JELLY_BEAN) &#123;</div><div class="line">         cView.getViewTreeObserver().removeOnGlobalLayoutListener(<span class="keyword">this</span>);</div><div class="line">     &#125; <span class="keyword">else</span> &#123;</div><div class="line">         cView.getViewTreeObserver().removeGlobalOnLayoutListener(<span class="keyword">this</span>);</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">int</span>[] location = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line"></div><div class="line">     cView.getLocationInWindow(location);</div><div class="line"></div><div class="line">     cRectF.left = location[<span class="number">0</span>];</div><div class="line">     cRectF.top = location[<span class="number">1</span>];</div><div class="line">     cRectF.right = cRectF.left + cView.getWidth();</div><div class="line">     cRectF.bottom = cRectF.top + cView.getHeight();</div><div class="line">   </div><div class="line">     <span class="comment">//获取window中的最外侧的View。用于添加LayerView</span></div><div class="line">     <span class="keyword">this</span>.parent = (FrameLayout) mActivity.getWindow().getDecorView();</div><div class="line"></div><div class="line">     show();</div><div class="line">     Log.d(TAG, <span class="string">"onGlobalLayout: "</span>);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initshow</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="comment">//调用，监听View的生成状况</span></div><div class="line">    cView.getViewTreeObserver().addOnGlobalLayoutListener(<span class="keyword">this</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后的操作，就是把屏幕变暗，在需要透明的位置，画一个形状。这里就涉及到一些Canvas的操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (parent != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="comment">//绘制有两种方法。</span></div><div class="line">            drawBack1(canvas);</div><div class="line"><span class="comment">//            drawBack2(canvas);</span></div><div class="line">            drawButton(canvas);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 通过设置两层，来实现</div><div class="line">     * 这里 &#123;<span class="doctag">@link</span> Canvas#saveLayer(RectF, Paint, int)&#125;来先保存浮层</div><div class="line">     * &#123;<span class="doctag">@link</span> Canvas#restoreToCount(int)&#125; 恢复浮层，也就是把两层合并。</div><div class="line">     * 这两个操作很重要。如果没有这两个操作，颜色会发生变化，具体可以注释了自己看看。</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> canvas</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawBack2</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="comment">//设置背景色</span></div><div class="line"><span class="comment">//            canvas.drawColor();</span></div><div class="line">        <span class="keyword">int</span> canvasWidth = canvas.getWidth();</div><div class="line">        <span class="keyword">int</span> canvasHeight = canvas.getHeight();</div><div class="line">        <span class="keyword">int</span> layerId = canvas.saveLayer(<span class="number">0</span>, <span class="number">0</span>, canvasWidth, canvasHeight, <span class="keyword">null</span>, Canvas.ALL_SAVE_FLAG);</div><div class="line">        bgPaint.setColor(layerColor);</div><div class="line">        RectF rectF = <span class="keyword">new</span> RectF();</div><div class="line">        rectF.left = <span class="number">0</span>;</div><div class="line">        rectF.top = <span class="number">0</span>;</div><div class="line">        rectF.right = mWidth;</div><div class="line">        rectF.bottom = mHeight;</div><div class="line">        canvas.drawRect(rectF, bgPaint);</div><div class="line">        bgPaint.setXfermode(<span class="keyword">new</span> PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));</div><div class="line">        bgPaint.setColor(Color.TRANSPARENT);</div><div class="line">        canvas.drawRect(cRectF, bgPaint);</div><div class="line">        <span class="comment">//最后将画笔去除Xfermode</span></div><div class="line">        bgPaint.setXfermode(<span class="keyword">null</span>);</div><div class="line">        canvas.restoreToCount(layerId);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 先生额外生成一个canvas,在这个canvas中绘制背景，透明块，</div><div class="line">     * 需要生成一个bitmap,浪费内存，不推荐。</div><div class="line">     * <span class="doctag">@param</span> canvas</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawBack1</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        bgBitmap = Bitmap.createBitmap(canvas.getWidth(), canvas.getHeight(), Bitmap.Config.ARGB_8888);</div><div class="line">        bgPaint.setColor(layerColor);</div><div class="line">        mCanvas = <span class="keyword">new</span> Canvas(bgBitmap);</div><div class="line">        RectF rectF = <span class="keyword">new</span> RectF();</div><div class="line">        rectF.left = <span class="number">0</span>;</div><div class="line">        rectF.top = <span class="number">0</span>;</div><div class="line">        rectF.right = mWidth;</div><div class="line">        rectF.bottom = mHeight;</div><div class="line">        mCanvas.drawRect(rectF, bgPaint);</div><div class="line">        Paint cPaint = <span class="keyword">new</span> Paint();</div><div class="line">        cPaint.setColor(Color.TRANSPARENT);</div><div class="line">        cPaint.setXfermode(<span class="keyword">new</span> PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));</div><div class="line">        cPaint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line">        mCanvas.drawRect(cRectF, cPaint);</div><div class="line">        canvas.drawBitmap(bgBitmap, <span class="number">0</span>, <span class="number">0</span>, bgPaint);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 绘制按钮</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> canvas</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawButton</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> length = <span class="number">100</span>;</div><div class="line">        <span class="keyword">int</span> wide = <span class="number">200</span>;</div><div class="line">        RectF rectF = <span class="keyword">new</span> RectF((mWidth - wide) / <span class="number">2</span>, (mHeight * (<span class="number">2f</span> / <span class="number">3</span>)), (mWidth + wide) / <span class="number">2</span>, (mHeight * (<span class="number">2f</span> / <span class="number">3</span>)) + length);</div><div class="line"></div><div class="line">        canvas.drawRoundRect(rectF, <span class="number">10</span>, <span class="number">10</span>, btPaint);</div><div class="line"></div><div class="line">        btPaint.setTextSize(<span class="number">40</span>);</div><div class="line">        btPaint.setTextAlign(Paint.Align.CENTER);</div><div class="line"></div><div class="line">        canvas.drawText(<span class="string">"提示操作"</span>, rectF.centerX(), cRectF.bottom + <span class="number">100</span>, btPaint);</div><div class="line"></div><div class="line"></div><div class="line">        Paint.FontMetrics fontMetrics = btPaint.getFontMetrics();</div><div class="line">        <span class="keyword">float</span> top = fontMetrics.top;<span class="comment">//为基线到字体上边框的距离,即上图中的top</span></div><div class="line">        <span class="keyword">float</span> bottom = fontMetrics.bottom;<span class="comment">//为基线到字体下边框的距离,即上图中的bottom</span></div><div class="line">        <span class="keyword">int</span> baseLineY = (<span class="keyword">int</span>) (rectF.centerY() - top / <span class="number">2</span> - bottom / <span class="number">2</span>);<span class="comment">//基线中间点的y轴计算公式</span></div><div class="line">        canvas.drawText(<span class="string">"我知道了。"</span>, rectF.centerX(), baseLineY, btPaint);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>到此，浮层基本就结束了，最后，附上<a href="https://github.com/AWarmHug/LayerView" target="_blank" rel="external">地址</a>。</p>
 
     
 
@@ -420,19 +409,19 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/06/06/自定义控件-引导浮层/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2017/06/02/如何搭建自己的博客/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
