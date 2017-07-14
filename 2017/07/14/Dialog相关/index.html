@@ -10,7 +10,7 @@
     
     <title>
         
-            Scroller处理View滑动 | 
+            Dialog相关 | 
         
         Hi！在吗？
     </title>
@@ -58,7 +58,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="hizaima.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Scroller处理View滑动 | Hi！在吗？">
+    <meta property="og:title" content="Dialog相关 | Hi！在吗？">
     <meta property="og:description" content="null">
     
 
@@ -279,7 +279,7 @@
         
     
             <p class="article-headline-p">
-                Scroller处理View滑动
+                Dialog相关
             </p>
         </div>
 
@@ -298,7 +298,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>warm</strong>
-        <span>6月 26, 2017</span>
+        <span>7月 14, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -338,7 +338,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Scroller处理View滑动&url=hizaima.com//2017/06/26/Scroller处理View滑动/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Dialog相关&url=hizaima.com//2017/07/14/Dialog相关/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -359,7 +359,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hi！在吗？&title=Scroller处理View滑动&summary=null&pics=hizaima.com/img/logo.png&url=hizaima.com/2017/06/26/Scroller处理View滑动/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hi！在吗？&title=Dialog相关&summary=null&pics=hizaima.com/img/logo.png&url=hizaima.com/2017/07/14/Dialog相关/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -377,7 +377,18 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <p>最近在写一个弹框，宽度需要占满整个屏幕。之前一直使用PopupWindow来做这样的事情，但是PopupWindow一直存在很多问题，背景不能直接变暗，从其他节目回到显示popupWindow的界面，会重新执行一遍显示动画，之前也对Popupwindow的这些问题进行过解决，但是最近有发现在Android7.0上PopupWindow出现了兼容性问题(具体可以看这里<a href="http://www.jianshu.com/p/0df10893bf5b" target="_blank" rel="external">PopupWindow 在 Android N(7.0) 的兼容性问题</a>)。    </p>
+<p>​种种问题，想想还是用Dialog来显示，但是PopupWindow确实比Dialog要灵活很多，指哪放哪。  </p>
+<p>​我再网上看了很多别人写的博客，写的太碎，就是放了几个代码片段，设置一下Style,设置一下Dialog。写的实在太模糊了，很多并没有效果，所以 我就简单看了看源码，结合网上的一些说法，自己设置了一下。<br>介于现在推荐使用DialogFragment（<a href="http://blog.csdn.net/lmj623565791/article/details/37815413/" target="_blank" rel="external">为什么推荐使用DialogFragment</a>），所以我也是基于DialogFragment介绍的。   </p>
+<p>​首先设置一下Style，很简单，一目了然:   </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme.Dialog.Transparent"</span> <span class="attr">parent</span>=<span class="string">"android:Theme.Dialog"</span>&gt;</span><span class="xml"></span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!--设置全屏，去除stateBar--&gt;</span></div><div class="line">    <span class="comment">&lt;!--&lt;item name="android:windowFullscreen"&gt;true&lt;/item&gt;--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 背景透明 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@android:color/transparent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowContentOverlay"</span>&gt;</span>@null<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 浮于Activity之上 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsFloating"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 边框 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowFrame"</span>&gt;</span>@null<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Dialog以外的区域模糊效果 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:backgroundDimEnabled"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 无标题 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowNoTitle"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 半透明 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>​然后，继承DialogFragment，主要内容都在注释中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseDialogFragment</span> <span class="keyword">extends</span> <span class="title">DialogFragment</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setStyle(STYLE_NO_TITLE, R.style.AppTheme_Dialog_Transparent);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 我个人推荐在这里设置View,就像普通的Fragment一样，不要在&#123;<span class="doctag">@link</span> #onCreateDialog(Bundle)&#125;中设置</div><div class="line">     */</div><div class="line">    <span class="meta">@Nullable</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 获取Dialog的Window ,在获取到&#123;<span class="doctag">@link</span> Window#getDecorView()&#125;，在这上面绘制界面，绘制结束后，设置Window相关内容，必须要按顺序</div><div class="line">         * 还有一点需要注意,一定要设置BackgroundDrawable，否则会有边框</div><div class="line">         * 或者在style中设置 &lt;item name="android:windowBackground"&gt;<span class="doctag">@android</span>:color/transparent&lt;/item&gt;</div><div class="line">         * window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));</div><div class="line">         */</div><div class="line">        <span class="keyword">final</span> Window window = getDialog().getWindow();</div><div class="line">        View view = onMyCreateView(inflater, window != <span class="keyword">null</span> ? (ViewGroup) window.getDecorView() : container, savedInstanceState);</div><div class="line">        onSetWindow(window);</div><div class="line">        <span class="keyword">return</span> view;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> View <span class="title">onMyCreateView</span><span class="params">(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置window相关。</div><div class="line">     * &#123;<span class="doctag">@link</span> Window#setWindowAnimations(int)&#125;</div><div class="line">     * &#123;<span class="doctag">@link</span> Window#setGravity(int)&#125; (int)&#125;</div><div class="line">     * &#123;<span class="doctag">@link</span> Window#setLayout(int, int)&#125; (int)&#125;</div><div class="line">     * 等等</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> window</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSetWindow</span><span class="params">(Window window)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​最后，说明一下PopupWindow和Dialog的一些使用差异吧，都是使用WindowManager生成一个Window显示相关内容，但是PopupWindow，并没有创建一个Window的引用，所以，我们无法getWindow()进行修改背景浮层，大小，位置，所以PopupWindow封装了很多方法，来修改位置，所以很多人为了修改背景浮层，直接修改了activity上Window的alpha,类似这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">WindowManager.LayoutParams lp = activity.getWindow()</div><div class="line">        .getAttributes();</div><div class="line">lp.alpha = <span class="number">0.4f</span>;</div><div class="line">activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);</div><div class="line">activity.getWindow().setAttributes(lp);</div></pre></td></tr></table></figure>
+<p>但是我个人是不推荐的，因为很多机子上可能会出现问题，尤其是华为，而且还需要一个渐变的效果，就需要写一个动画不断修改alpha，还是在华为的一些机子（p8）上，这样的渐变，会变得很卡，完全不像是渐变效果，我之前在修改PopupWindow时，就简单封装了一下，我获取循环获取最外层的ViewGroup，或者直接获取Acivity上window的getDecorView()，在这上面添加一个半透明的View，执行一个渐变动画，就不会出现兼容问题了。因为Dialog是可以获取Window的，所有我们可以直接通过Dialog获取Window，设置相关宽高和Gravity等等。</p>
+<p>​如果Window不需要特意指定在某个控件附近，只是放在屏幕上、下、左、右，还是应该使用DialogFragment。</p>
+
     
 
     
@@ -403,21 +414,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/06/29/报表控件/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/06/16/反编译/" id="post_nav-older" class="next-content">
+        <a href="/2017/06/29/报表控件/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
