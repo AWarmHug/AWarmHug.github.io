@@ -10,7 +10,7 @@
     
     <title>
         
-            一个简单且实用的下拉刷新 | 
+            GreenDao使用 | 
         
         Hi！在吗？
     </title>
@@ -58,7 +58,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="hizaima.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="一个简单且实用的下拉刷新 | Hi！在吗？">
+    <meta property="og:title" content="GreenDao使用 | Hi！在吗？">
     <meta property="og:description" content="null">
     
 
@@ -242,7 +242,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GreenDao使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">GreenDao使用</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -279,7 +279,7 @@
         
     
             <p class="article-headline-p">
-                一个简单且实用的下拉刷新
+                GreenDao使用
             </p>
         </div>
 
@@ -298,7 +298,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>warm</strong>
-        <span>6月 11, 2017</span>
+        <span>9月 29, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -338,7 +338,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=一个简单且实用的下拉刷新&url=hizaima.com//2017/06/11/一个简单且实用的下拉刷新/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=GreenDao使用&url=hizaima.com//2017/09/29/GreenDao使用/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -359,7 +359,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hi！在吗？&title=一个简单且实用的下拉刷新&summary=null&pics=hizaima.com/img/logo.png&url=hizaima.com/2017/06/11/一个简单且实用的下拉刷新/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hi！在吗？&title=GreenDao使用&summary=null&pics=hizaima.com/img/logo.png&url=hizaima.com/2017/09/29/GreenDao使用/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -377,8 +377,95 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>先上效果：</p>
-<img src="http://oqwcjoc6j.bkt.clouddn.com/img/PullToRefresh.gif">
+        <h2 id="GreenDao使用"><a href="#GreenDao使用" class="headerlink" title="GreenDao使用"></a>GreenDao使用</h2><ol>
+<li><p>配置</p>
+<ul>
+<li>product#gradle</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath &apos;com.android.tools.build:gradle:2.2.3&apos;</div><div class="line">        //GreenDao3依赖</div><div class="line">        classpath &apos;org.greenrobot:greendao-gradle-plugin:3.2.1&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>module#gradle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//greendao plugin</div><div class="line">apply plugin: &apos;org.greenrobot.greendao&apos;</div><div class="line"> </div><div class="line"> //greendao配置</div><div class="line">greendao &#123;</div><div class="line">      //版本号，升级时可配置</div><div class="line">     schemaVersion 1 //版本号</div><div class="line">     daoPackage &apos;com.warm.greendaodemo.dao.gen&apos; //生成文件的包名</div><div class="line">     targetGenDir &apos;src/main/java&apos;  //文件路径</div><div class="line"> &#125;</div><div class="line"> </div><div class="line">//greendao依赖</div><div class="line">    compile &apos;org.greenrobot:greendao:3.2.0&apos;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>编写实体</p>
+<p>在编写实体时，当写完一个实体，加上注解后，需要rebuild一下项目，会自动生成一些代码，注解详情如下：</p>
+<ul>
+<li><p>@Entity：这个用于注解类，标明该实体需要生成Dao文件，并可以设置一些表的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@Entity(</div><div class="line">        //标明GreenDao当前实体属于哪个schema,作用是什么我也不太清楚，一般不设置</div><div class="line">//        schema=&quot;default_schema&quot;,</div><div class="line"></div><div class="line">        //设置是否活跃，true：update/delete/refresh 可以有这几个操作</div><div class="line">        active =true,</div><div class="line">        //表的名字</div><div class="line">        nameInDb = &quot;STUDENT&quot;,</div><div class="line">        //是否创建该表</div><div class="line">        createInDb = true,</div><div class="line">        // 是否生成所有属性的构造器</div><div class="line">        generateConstructors = true,</div><div class="line">        // 是否生成get、set方法</div><div class="line">        generateGettersSetters = true</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+<li><p>属性注解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">public class Student &#123;</div><div class="line">    //设置id  autoincrement是否自增</div><div class="line">    @Id(autoincrement = true)</div><div class="line">    private Long id;</div><div class="line"></div><div class="line">    //@Unique 设置成唯一值</div><div class="line">    //如果不设置id，可以通过这个设置索引 并设置unique = true 设置成为主键</div><div class="line">    @Index</div><div class="line">    private Long stu_num;</div><div class="line"></div><div class="line">    //表中的列明</div><div class="line">    @Property(nameInDb = &quot;NAME&quot;)</div><div class="line">    private String name;</div><div class="line"></div><div class="line">    //不能为null</div><div class="line">    @NotNull</div><div class="line">    private Long teacherId;</div><div class="line"></div><div class="line">    private Integer age;</div><div class="line"></div><div class="line">    private String address;</div><div class="line">    </div><div class="line">	//Student类中的代码</div><div class="line">	@ToMany</div><div class="line">	@JoinEntity(</div><div class="line">		//中间关系实体</div><div class="line">		entity = JoinStudentWithSubject.class,</div><div class="line">		//JoinStudentWithSubject.studentId 对应Student的Id</div><div class="line">        sourceProperty = &quot;studentId&quot;,</div><div class="line">        //JoinStudentWithSubject.subjectId 对应Subject的Id</div><div class="line">        targetProperty = &quot;subjectId&quot;</div><div class="line">	)</div><div class="line">private List&lt;Subject&gt; subjects;</div><div class="line"></div><div class="line">    //设置不存到表中</div><div class="line">    @Transient</div><div class="line">    private boolean selected;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>关系注解</p>
+<p>关系注解一共有三个1对1、1对多、多对多。</p>
+<ul>
+<li><p>@ToOne()：实现1对1关联，一般在当前的实体中增加一个xxId对应另外一个实体的Id，根据这个xxId可以获取到该实体，成绩实体如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@Entity</div><div class="line">public class Score &#123;</div><div class="line">    @Id(autoincrement = true)</div><div class="line">    private Long id;</div><div class="line">    private Float chinese;</div><div class="line">    private Float math;</div><div class="line">    private Float english;</div><div class="line"></div><div class="line">    private Long studentId;</div><div class="line">    @ToOne(joinProperty = &quot;studentId&quot;)</div><div class="line">    private Student student;</div><div class="line">    //根据班主任的Tag获取成绩，</div><div class="line">    private String teacherTag;</div><div class="line">    @ToOne(joinProperty = &quot;teacherTag&quot;)</div><div class="line">    private Teacher teacher;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个Score只能对应一个学生，所以在Score中添加一个studentId，然后进行注解，根据studentId获取Student。</p>
+</li>
+<li><p>@ToMany()：实现1对多关联，一般情况下，在多实体下拥有一个多实体的xxId，这时候，多实体可以通过@ToOne()获取1实体中的数据，1实体可以根据多实体中的xxId获取多实体的list。如：一个班主任对应多个学生，那么学生是多实体，班主任是1实体，学生实体中存在teacherId。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">@Entity</div><div class="line">public class Teacher &#123;</div><div class="line">    @Id(autoincrement = true)</div><div class="line">    private Long id;</div><div class="line">    private String name;</div><div class="line">    private int age;</div><div class="line">    private Integer sex;</div><div class="line">    private Integer teachAge;</div><div class="line">    //班主任可以通过通过如下属性获取学生：</div><div class="line">    @ToMany(referencedJoinProperty = &quot;teacherId&quot;)</div><div class="line">    private List&lt;Student&gt; students;</div><div class="line">    //根据tag获取成绩</div><div class="line">     private String tag;</div><div class="line">    @ToMany(joinProperties = &#123;@JoinProperty(name = &quot;tag&quot;,referencedName = &quot;teacherTag&quot;)&#125;)</div><div class="line">    private Score score;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class Student &#123;</div><div class="line">    //设置id  autoincrement是否自增</div><div class="line">    @Id(autoincrement = true)</div><div class="line">    private Long id;</div><div class="line"></div><div class="line">    //@Unique 设置成唯一值</div><div class="line">    //如果不设置id，可以通过这个设置索引 并设置unique = true 设置成为主键</div><div class="line">    @Index</div><div class="line">    private Long stu_num;</div><div class="line"></div><div class="line">    //表中的列明</div><div class="line">    @Property(nameInDb = &quot;NAME&quot;)</div><div class="line">    private String name;</div><div class="line"></div><div class="line">    //不能为null，通过teacherId获取学生</div><div class="line">    @NotNull</div><div class="line">    private Long teacherId;</div><div class="line">    @ToOne(joinProperty = &quot;teacherId&quot;)</div><div class="line">    private Teacher teacher;</div><div class="line"></div><div class="line">    private Integer age;</div><div class="line"></div><div class="line">    private String address;</div><div class="line"></div><div class="line">    //设置不存到表中</div><div class="line">    @Transient</div><div class="line">    private boolean selected;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>@ToMany另外还有一个JoinProperty[]，这个和referencedJoinProperty类似，只是referencedJoinProperty，默认使用id和多实体中的外键对应，但是可能我们不能使用id和多实体的外键对应。我们就可以使用JoinProperty[]实现自定义的关联。</p>
+<p>比如Score中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">private String teacherTag;</div></pre></td></tr></table></figure>
+<p>Teacher中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">private String tag;</div><div class="line">@ToMany(joinProperties = &#123;@JoinProperty(name = &quot;tag&quot;,referencedName = &quot;teacherTag&quot;)&#125;)</div><div class="line">private List&lt;Score&gt; scores;</div></pre></td></tr></table></figure>
+<p>所以，@ToMany(joinProperties = {@JoinProperty(name = “id” ,referencedName = “teacherId”)})和@ToMany(referencedJoinProperty = “teacherId”)是同一个作用。</p>
+</li>
+<li><p>@ToMany、@JoinEntity()两个同时使用。场景是，Student可以选择多个Subject，Subject也有多个Student，所以在这种情况下，我们需要一个中间关系表，用来保存两者的关系。这个中间关系表拥有两者的Id。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//Student类中的代码</div><div class="line">@ToMany</div><div class="line">@JoinEntity(</div><div class="line">		//中间关系实体</div><div class="line">		entity = JoinStudentWithSubject.class,</div><div class="line">		//JoinStudentWithSubject.studentId 对应Student的Id</div><div class="line">        sourceProperty = &quot;studentId&quot;,</div><div class="line">        //JoinStudentWithSubject.subjectId 对应Subject的Id</div><div class="line">        targetProperty = &quot;subjectId&quot;</div><div class="line">)</div><div class="line">private List&lt;Subject&gt; subjects;</div></pre></td></tr></table></figure>
+<p>Subject实体：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Entity</div><div class="line">public class Subject &#123;</div><div class="line">    @Id(autoincrement = true)</div><div class="line">    private Long id;</div><div class="line">    private String name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>中间关系实体：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@Entity</div><div class="line">public class JoinStudentWithSubject &#123;</div><div class="line">    @Id(autoincrement = true)</div><div class="line">    private Long id;</div><div class="line">    //拥有Student的Id和Subject的Id</div><div class="line">    private Long studentId;</div><div class="line">    private Long subjectId;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>因为多对多可以互相获取，所以这两个都需要使用这两个注解才可以互相联系。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>增删改查</p>
+<p>当实体中写好所有需要的注解后，rebuild一下项目，项目会自动生成DaoMaster、DaoSession和Daos，DaoMaster.OpenHelper负责创建数据库，DaoMaster负责创建所有表，然后DaoMaster提供DaoSession管理所有的表，我们可以根据DaoSession获取所有Daos，然后由Dao进行操作。</p>
+<ul>
+<li><p>在使用时，一般在我们会在Application类中创建数据库和表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public class MyApp extends Application &#123;</div><div class="line"></div><div class="line">    //获取所有Dao的顶级上层，用来负责所有dao的增删改查</div><div class="line">    private static DaoSession daoSession;</div><div class="line"></div><div class="line">    private final boolean idEncrypt = false;</div><div class="line"></div><div class="line">    private static final String PWD = &quot;pwd&quot;;</div></pre></td></tr></table></figure>
+<pre><code>@Override
+public void onCreate() {
+    super.onCreate();
+    Stetho.initializeWithDefaults(this);
+    setupDb();
+}
+
+private void setupDb() {
+
+    //创建数据库shop.db&quot;
+    MySQLiteOpenHelper helper = new MySQLiteOpenHelper(this, idEncrypt ? &quot;shop_encrypt.db&quot; : &quot;shop.db&quot;, null);
+    //获取可写数据库
+    Database db = idEncrypt ? helper.getEncryptedWritableDb(PWD) : helper.getWritableDb();
+    //获取数据库对象
+    DaoMaster daoMaster = new DaoMaster(db);
+
+    //获取Dao对象管理者
+    daoSession = daoMaster.newSession();
+}
+
+public static DaoSession getDaoSession() {
+    return daoSession;
+}
+</code></pre><p>}<br>```</p>
+</li>
+<li><p>增、删、改、查</p>
+<p>这些操作可以自行查询具体方法，非常简单，熟悉一下就好。</p>
+</li>
+</ul>
+</li>
+<li><p>在建表的时候，要注意一些关键字是不可以作为表名或列名的，<a href="http://blog.csdn.net/imxilife/article/details/45620009" target="_blank" rel="external">关键字</a>。</p>
+</li>
+</ol>
+
     
 
     
@@ -404,21 +491,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/06/16/反编译/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/06/06/自定义控件-引导浮层/" id="post_nav-older" class="next-content">
+        <a href="/2017/09/13/一些笔记/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
